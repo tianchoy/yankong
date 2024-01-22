@@ -1,0 +1,10 @@
+E:\tianchao\C#\yankong\bin\Debug\yankong.exe.config
+E:\tianchao\C#\yankong\bin\Debug\yankong.exe
+E:\tianchao\C#\yankong\bin\Debug\yankong.pdb
+E:\tianchao\C#\yankong\obj\Debug\yankong.csproj.AssemblyReference.cache
+E:\tianchao\C#\yankong\obj\Debug\yankong.Form1.resources
+E:\tianchao\C#\yankong\obj\Debug\yankong.Properties.Resources.resources
+E:\tianchao\C#\yankong\obj\Debug\yankong.csproj.GenerateResource.cache
+E:\tianchao\C#\yankong\obj\Debug\yankong.csproj.CoreCompileInputs.cache
+E:\tianchao\C#\yankong\obj\Debug\yankong.exe
+E:\tianchao\C#\yankong\obj\Debug\yankong.pdb
