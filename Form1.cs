@@ -17,7 +17,6 @@ namespace yankong
         public Form1()
         {
             InitializeComponent();
-            System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
         }
         private void Updata_Serialport_Name(ComboBox MycomboBox)
         {
@@ -87,8 +86,6 @@ namespace yankong
 
         public bool Start(int speed, bool fwd)
         {
-            string way = fwd ? "正向" : "反向";
-
             speed = fwd ? speed : -speed; //速度正数正向，负数负向
             if (!SetSpeed(speed)) return false;
 
@@ -146,7 +143,7 @@ namespace yankong
         //启动电机
         private void button1_Click(object sender, EventArgs e)
         {
-            bool fx = true;
+            bool fx ;
             if (radioButton1.Checked)
             {
                 fx = true;
@@ -166,14 +163,14 @@ namespace yankong
         //打开串口
         private void button3_Click(object sender, EventArgs e)
         {
-            try                                                          // try 是尝试部分，如果尝试过程中出现问题，进入catch部分，执行错误处理代码  
+            try                                                          
             {
                 serialPort1.PortName = comboBox1.Text;                   // 将串口设备的串口号属性设置为comboBox1复选框中选择的串口号
                 serialPort1.BaudRate = Convert.ToInt32(comboBox2.Text);  // 将串口设备的波特率属性设置为comboBox2复选框中选择的波特率
                 serialPort1.Open();                                      // 打开串口
-                comboBox1.Enabled = false;                               // 串口已打开，将comboBox1设置为不可操作
-                comboBox2.Enabled = false;                               // 串口已打开，将comboBox2设置为不可操作
-                button3.Enabled = false;
+                comboBox1.Enabled = false;                               // 串口已打开，将comboBox1、comboBox2设置为不可操作
+                comboBox2.Enabled = false;                               
+                button3.Enabled = false;                                 //打开串口后，此按钮不可操作
                 button4.Enabled = true;
             }
             catch
@@ -226,10 +223,11 @@ namespace yankong
             }
             catch (Exception ex)
             {
-                
+                MessageBox.Show("关闭电机失败！", "错误");   // 弹出错误对话框
             }
         }
 
+        //CRC校验函数
         public static void CalCRC(byte[] bytes, out byte dl, out byte dh)
         {
             int crc = 0xffff;
